@@ -39,5 +39,5 @@ COPY ./dockercompose.runtime.properties runtime.properties
 COPY ./example.applicationSetup.n3 applicationSetup.n3
 
 RUN chmod ugo+w -R /usr/local/tomcat/temp
-
+RUN chmod ugo+w -R /usr/local/vivo/home
 RUN export CATALINA_OPTS="-Xms512m -Xmx512m -XX:MaxPermSize=128m"
