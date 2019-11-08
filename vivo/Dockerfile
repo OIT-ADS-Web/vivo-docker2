@@ -12,26 +12,15 @@ WORKDIR /usr/local/
 #RUN git clone https://github.com/vivo-project/Vitro.git Vitro -b rel-1.11.0-RC
 #RUN git clone https://github.com/vivo-project/VIVO.git VIVO -b rel-1.11.0-RC
 
-ENV VITRO_MD5 cfe5125fb706e3966b2cd6ecb77972bc
 ENV VITRO_VERSION 1.11.0
 RUN wget -O Vitro.zip https://github.com/vivo-project/Vitro/releases/download/vitro-${VITRO_VERSION}/vitro-${VITRO_VERSION}.zip 
 RUN unzip Vitro.zip -d Vitro
 RUN rm Vitro.zip
-#RUN echo "$VITRO_MD5  vitro.tar.gz" > vitro.tar.gz.md5
-#RUN wget -O vitro.tar.gz https://github.com/vivo-project/Vitro/releases/download/vitro-${VITRO_VERSION}/vitro-${VITRO_VERSION}.tar.gz && \
-#     md5sum vitro.tar.gz.md5 && \
-#     tar -xzf vitro.tar.gz && rm vitro.tar.gz
 
-ENV VIVO_MD5 74125fa47d451b22b69527c44dfb9924
 ENV VIVO_VERSION 1.11.0
 RUN wget -O VIVO.zip https://github.com/vivo-project/VIVO/releases/download/vivo-${VIVO_VERSION}/VIVO-${VIVO_VERSION}.zip
 RUN unzip VIVO.zip -d VIVO
 RUN rm VIVO.zip
-#RUN echo "$VIVO_MD5  vivo.tar.gz" > vivo.tar.gz.md5
-#RUN wget -O vivo.tar.gz https://github.com/vivo-project/VIVO/releases/download/vivo-${VIVO_VERSION}/VIVO-${VIVO_VERSION}.tar.gz && \
-#     md5sum vivo.tar.gz.md5 && \
-#     tar -xzf vivo.tar.gz && rm vivo.tar.gz
-
 
 WORKDIR /usr/local/VIVO/
 RUN mvn install -s example-settings.xml
