@@ -29,3 +29,13 @@ Files necessary to create an automated backup of Duke test vivo instance
     -o, --output   Output format followed by one of nt, nq, jsonld, trig, rdf, or ttl
 
 
+## TODO:
+
+1. run `java -jar jena3tools -e -d /usr/local/VIVO/home/config`
+   this will put data dump in `config/dumps`
+2. `tar -czvf archives/$(date).tar.gz /usr/local/VIVO/home/config/dumps`
+   so there is a copy in `archives` folder
+3. delete anything older than 7 days? from `archives` folder
+
+
+
