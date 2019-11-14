@@ -23,6 +23,7 @@ RUN unzip VIVO.zip -d VIVO
 RUN rm VIVO.zip
 
 WORKDIR /usr/local/VIVO/
+COPY ./example-settings.xml example-settings.xml
 RUN mvn install -s example-settings.xml
 
 # clean up
