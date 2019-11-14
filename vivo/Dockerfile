@@ -37,10 +37,10 @@ WORKDIR /usr/local/VIVO/home/config
 
 COPY ./dockercompose.runtime.properties runtime.properties
 COPY ./example.applicationSetup.n3 applicationSetup.n3
-COPY ./dockercompose.runtime.properties /usr/local/vivo/home/config/runtime.properties
-COPY ./example.applicationSetup.n3 /usr/local/vivo/home/config/applicationSetup.n3
-
+#COPY ./dockercompose.runtime.properties /usr/local/vivo/home/config/runtime.properties
+#COPY ./example.applicationSetup.n3 /usr/local/vivo/home/config/applicationSetup.n3
 
 RUN chmod ugo+w -R /usr/local/tomcat/temp
-RUN chmod ugo+w -R /usr/local/vivo/home
+RUN chmod ugo+w -R /usr/local/VIVO/home
+
 RUN export CATALINA_OPTS="-Xms512m -Xmx512m -XX:MaxPermSize=128m"
