@@ -10,6 +10,7 @@ RUN apt-get install -y maven git
 WORKDIR /usr/local/
 
 RUN mkdir -p /usr/local/vivo_backup
+COPY copy_vivo_data.sh /usr/local/
 
 #RUN git clone https://github.com/vivo-project/Vitro.git Vitro -b rel-1.11.0-RC
 #RUN git clone https://github.com/vivo-project/VIVO.git VIVO -b rel-1.11.0-RC
