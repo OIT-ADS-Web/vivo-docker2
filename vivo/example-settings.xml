@@ -5,7 +5,7 @@
         <profile>
             <id>defaults</id>
             <properties>
-                <app-name>vivo</app-name>
+                <app-name>ROOT</app-name>
 
                 <vivo-dir>/usr/local/VIVO/home</vivo-dir>
                 <tomcat-dir>/usr/local/tomcat</tomcat-dir>

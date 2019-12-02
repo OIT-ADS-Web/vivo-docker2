@@ -12,9 +12,6 @@ WORKDIR /usr/local/
 RUN mkdir -p /usr/local/vivo_backup
 COPY copy_vivo_data.sh /usr/local/
 
-#RUN git clone https://github.com/vivo-project/Vitro.git Vitro -b rel-1.11.0-RC
-#RUN git clone https://github.com/vivo-project/VIVO.git VIVO -b rel-1.11.0-RC
-
 ENV VITRO_VERSION 1.11.0
 RUN wget -O Vitro.zip https://github.com/vivo-project/Vitro/releases/download/vitro-${VITRO_VERSION}/vitro-${VITRO_VERSION}.zip 
 RUN unzip Vitro.zip -d Vitro
@@ -33,16 +30,13 @@ RUN mvn install -s example-settings.xml
 RUN rm -r /usr/local/tomcat/webapps/docs
 RUN rm -r /usr/local/tomcat/webapps/examples
 
-# Set properties
 # Adjust logging, you can mount over this in docker-compose to further adjust
-COPY ./log4j.properties /usr/local/tomcat/webapps/VIVO/WEB-INF/classes
+COPY ./log4j.properties /usr/local/tomcat/webapps/ROOT/WEB-INF/classes
 
 WORKDIR /usr/local/VIVO/home/config
 
 COPY ./dockercompose.runtime.properties runtime.properties
 COPY ./example.applicationSetup.n3 applicationSetup.n3
-#COPY ./dockercompose.runtime.properties /usr/local/vivo/home/config/runtime.properties
-#COPY ./example.applicationSetup.n3 /usr/local/vivo/home/config/applicationSetup.n3
 
 RUN chmod ugo+w -R /usr/local/tomcat/temp
 RUN chmod ugo+w -R /usr/local/VIVO/home
